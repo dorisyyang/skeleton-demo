@@ -1,0 +1,42 @@
+
+@mixin bp($point) {
+    @if $point == tablet {
+        @media (min-width: 768px) {
+            @content;
+        }
+    } @else if $point == desktop {
+        @media (min-width: 1025px) {
+            @content;
+        }
+    } @else if $point == desktop-wide {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    } @else if $point == desktop-xl {
+        @media (min-width: 1440px) {
+            @content;
+        }
+    }
+}
+
+@mixin image-box($width, $height) {
+    position: relative;
+    display: block;
+    max-width: $width;
+    height: 0;
+    margin: 0 auto;
+    padding-bottom: calc($height / $width) * 100%;
+    overflow: hidden;
+}
+
+@mixin clearfix() {
+    &::before,
+    &::after {
+        display: table; // 2
+        content: ' '; // 1
+    }
+
+    &::after {
+        clear: both;
+    }
+}

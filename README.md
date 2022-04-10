@@ -1,3 +1,9 @@
+# 使用tpescript
+npx create-react-app 项目名称 --template typescript
+
+# 大坑，create-react-app创建的项目在启动时会自动覆盖tsconfig.json中的某些配置
+baseUrl, paths
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

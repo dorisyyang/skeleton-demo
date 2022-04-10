@@ -1,0 +1,28 @@
+$tablet: 768px !default;
+$desktop: 1025px !default;
+$desktop-wide: 1200px !default;
+$desktop-xl: 1440px !default;
+$desktop-xxl: 1920px !default;
+$default-black: #000 !default;
+$gray: #55595c !default;
+$white: #fff !default;
+$primary-waring: #ffb120 !default;
+$primary-color: #d39d4e !default;
+$primary-hover-color: #b47d2e !default;
+$primary-disabled-color: #8a8a8a !default;
+// $primary-color-lighter: rgb(211 157 78 / 20%) !default;
+$text-grey: #6f6f6f;
+$brand-success: #5cb85c !default;
+
+// button
+$btn-normal: $primary-color !default;
+$btn-normal-hover: #dcb171 !default;
+$btn-black: $default-black !default;
+$btn-disabled: #999 !default;
+
+// Typography
+$font-family-normal: 'Roboto-ebd', helvetica, arial, sans-serif !default;
+$font-family-sans-serif: arial, sans-serif;
+$font-family-serif: georgia, 'Times New Roman', times, serif !default;
+$font-family-local: helvetica, arial, sans-serif;
+$font-family-base: $font-family-normal !default;

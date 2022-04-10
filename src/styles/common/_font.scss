@@ -1,0 +1,37 @@
+$cdn: 'https://res.ebdcdn.com/static/css';
+@font-face {
+    font-weight: 100;
+    font-family: Roboto-ebd;
+    font-style: normal;
+    src: url('#{$cdn}/fonts/EBD-Light.eot');
+    src: url('#{$cdn}/fonts/EBD-Light.eot?#iefix') format('embedded-opentype'), url('#{$cdn}/fonts/EBD-Light.woff2') format('woff2'),
+        url('#{$cdn}/fonts/EBD-Light.woff') format('woff');
+    font-display: swap;
+}
+@font-face {
+    font-weight: normal;
+    font-family: Roboto-ebd;
+    font-style: normal;
+    src: url('#{$cdn}/fonts/EBD-Regular.eot');
+    src: url('#{$cdn}/fonts/EBD-Regular.eot?#iefix') format('embedded-opentype'), url('#{$cdn}/fonts/EBD-Regular.woff2') format('woff2'),
+        url('#{$cdn}/fonts/EBD-Regular.woff') format('woff');
+    font-display: swap;
+}
+@font-face {
+    font-weight: 500;
+    font-family: Roboto-ebd;
+    font-style: normal;
+    src: url('#{$cdn}/fonts/EBD-Medium.eot');
+    src: url('#{$cdn}/fonts/EBD-Medium.eot?#iefix') format('embedded-opentype'), url('#{$cdn}/fonts/EBD-Medium.woff2') format('woff2'),
+        url('#{$cdn}/fonts/EBD-Medium.woff') format('woff');
+    font-display: swap;
+}
+@font-face {
+    font-weight: bold;
+    font-family: Roboto-ebd;
+    font-style: normal;
+    src: url('#{$cdn}/fonts/EBD-Bold.eot');
+    src: url('#{$cdn}/fonts/EBD-Bold.eot?#iefix') format('embedded-opentype'), url('#{$cdn}/fonts/EBD-Bold.woff2') format('woff2'),
+        url('#{$cdn}/fonts/EBD-Bold.woff') format('woff');
+    font-display: swap;
+}
