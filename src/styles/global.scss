@@ -1,3 +1,55 @@
+body {
+    color: $default-black;
+    font-size: 14px;
+    font-family: $font-family-base;
+    line-height: 1.4;
+    letter-spacing: 0.3pt;
+}
+
+img {
+    max-width: 100%;
+    border: none;
+}
+
+div,
+dl,
+dt,
+dd,
+ul,
+li,
+form,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+ins {
+    text-decoration: none;
+}
+
+a {
+    color: $default-black;
+    text-decoration: none;
+    outline: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    color: $primary-color;
+    text-decoration: underline;
+}
 h1,
 h2,
 h3,

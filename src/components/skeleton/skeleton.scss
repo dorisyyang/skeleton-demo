@@ -1,0 +1,58 @@
+$prefix: 'skeleton';
+.#{$prefix} {
+    &-item {
+        --base-color: #f2f2f2;
+        --highlight-color: #e6e6e6;
+        --animation-duration: 1.5s;
+        --animation-direction: normal;
+        --pseudo-element-display: block; /* Enable animation */
+        position: relative;
+        width: 100%;
+        background-color: var(--base-color);
+        border-radius: 0.25rem;
+        line-height: 1;
+        overflow: hidden;
+        z-index: 1; /* Necessary for overflow: hidden to work correctly in Safari */
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &::after {
+            content: ' ';
+            display: var(--pseudo-element-display);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(
+                90deg,
+                var(--base-color),
+                var(--highlight-color),
+                var(--base-color)
+            );
+            transform: translateX(-100%);
+            animation-name: skeleton-loading;
+            animation-direction: var(--animation-direction);
+            animation-duration: var(--animation-duration);
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+    }
+    &-image {
+        --base-color: #f2f2f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        background: var(--base-color);
+        border-radius: 0.25rem;
+    }
+}
+@keyframes skeleton-loading{
+    100% {
+        transform: translateX(100%);
+    }
+}

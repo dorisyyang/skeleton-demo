@@ -1,11 +1,12 @@
 import React from 'react';
-import EmbraceYourLight from './pages/embrace-your-light/embrace-your-light';
-import './styles/index.scss'
+import EmbraceYourLight from 'src/pages/embrace-your-light/embrace-your-light';
+import '@/styles/index.scss';
+import Layout from 'src/components/layout/layout'
 function App() {
   return (
-    <div>
-        <EmbraceYourLight></EmbraceYourLight>
-    </div>
+    <Layout>
+      <EmbraceYourLight></EmbraceYourLight>
+    </Layout>
   );
 }
 

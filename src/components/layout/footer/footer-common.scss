@@ -1,0 +1,35 @@
+.follow-us {
+    margin-top: 14px;
+    color: $white;
+
+    a {
+        display: inline-block;
+        margin-right: 25px;
+        overflow: hidden;
+        color: $default-black;
+        font-size: 10px;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .tiktok {
+        margin-right: 0;
+    }
+}
+
+.language-link {
+    padding: 15px 0;
+    color: $white;
+    letter-spacing: 0;
+    text-align: center;
+
+    a {
+        margin-left: 6px;
+        color: $white;
+    }
+
+    .current {
+        text-decoration: none;
+        border-bottom: 1px solid #b47d2e;
+    }
+}

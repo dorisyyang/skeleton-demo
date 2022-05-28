@@ -22,10 +22,10 @@
 @mixin image-box($width, $height) {
     position: relative;
     display: block;
-    max-width: $width;
+    max-width: $width * 1px;
     height: 0;
     margin: 0 auto;
-    padding-bottom: calc($height / $width) * 100%;
+    padding-bottom: calc((#{$height} / #{$width})*100%);
     overflow: hidden;
 }
 

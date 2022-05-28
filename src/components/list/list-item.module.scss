@@ -1,0 +1,149 @@
+.list-item {
+	width: 100%;
+	max-width: 460px;
+	margin: 0 auto;
+	text-align: center;
+	@media (min-width: 768px) {
+		padding: 0 10px;
+	}
+	@media (min-width: 1200px) {
+		padding: 0 20px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	.item-image {
+		position: relative;
+		width: 90%;
+		max-width: 600px;
+		margin: 30px auto 0;
+		@media (min-width: 768px) {
+			width: 100%;
+		}
+		@media (min-width: 1200px) {
+			margin: 50px auto 0;
+		}
+		a {
+            @include image-box(600, 300);
+        }
+		.img-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 600ms ease;
+        }
+		&:hover {
+			.img-main {
+				opacity: 1;
+			}
+			.img-hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	.item-colors {
+		display: inline-block;
+	    text-align: center;
+	    white-space: nowrap;
+	    vertical-align: top;
+	    overflow: hidden;
+	    .item-color {
+	    	display: inline-block;
+		    margin-right: 6px;
+		    width: 30px;
+		    height: 30px;
+			padding: 2px;
+		    border: 1px solid #fff;
+		    vertical-align: top;
+			font-size: 0;
+			line-height: 0;
+			border-radius: 100%;
+			cursor: pointer;
+	    }
+	    .current-color {
+	    	border: 1px solid #aaa;
+	    }
+	    span {
+			display: inline-block;
+	    	width: 24px;
+	    	height: 24px;
+			border-radius: 100%;
+			font-size: 0;
+			line-height: 0;
+			text-indent: -9999em;
+			background-size: 16px 16px;
+			background-color: #e8e8e8;
+			overflow: hidden;
+	    }
+	}
+
+	.new-tag {
+		position: absolute;
+		top: 0;
+		right: 0;
+		max-width: 45px;
+		height: auto;
+		@media (min-width: 768px) {
+			max-width: 30px;
+		}
+
+		@media (min-width: 900px) {
+			max-width: 40px;
+		}
+	}
+
+	.item-info {
+		position: relative;
+		margin: 12px auto;
+        z-index: 5;
+		font-size: 0;
+		.name {
+			margin-right: 11px;
+			color: #262626;
+			font-size: 22px;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	
+		.item-price {
+			display: inline-block;
+			color: #262626;
+			font-size: 22px;
+			font-weight: bold;
+		}
+	
+		.normal-price {
+			font-weight: bold;
+		}
+		a {
+			display: inline-block;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+    }
+
+	
+
+	.item-current-color,.out-of-stock {
+    	padding-top: 6px;
+    	color: #acacac;
+		font-size: 15px;
+        font-weight: bold;
+        line-height: 1.1;
+
+		@media (min-width: 768px) {
+			font-size: 14px;
+		}
+
+		@media (min-width: 900px) {
+			padding-top: 11px;
+		}
+    }
+
+}

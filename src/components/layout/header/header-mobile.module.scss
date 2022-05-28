@@ -1,0 +1,81 @@
+.header {
+    z-index: 300;
+    color: #fff;
+    border-bottom: 2px solid #f7f7f7;
+
+    .container {
+        position: relative;
+        max-width: 1360px;
+        margin: 0 auto;
+    }
+
+    .btn-left-shortcut {
+        display: inline-block;
+        padding-left: 10px;
+
+        span {
+            float: left;
+            height: 40px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .btn-left-menu {
+            width: 30px;
+            margin-right: 15px;
+            padding-top: 11px;
+            @include bp(tablet) {
+                margin-right: 18px;
+            }
+        }
+
+        .btn-left-search {
+            width: 27px;
+            margin-left: 3px;
+            padding-top: 16px;
+        }
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        width: 74px;
+        height: 30px;
+        margin-top: 10px;
+        margin-left: -37px;
+        transition: all 0.25s ease-out;
+    }
+
+    .btn-right-shortcut {
+        float: right;
+        padding-right: 5px;
+
+        & > li {
+            float: left;
+
+            div {
+                display: inline-block;
+                margin-top: 8px;
+                padding: 5px;
+            }
+        }
+
+        .favorite-nums {
+            color: $default-black;
+        }
+
+        .favorites {
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .cart {
+            img {
+                width: 17px;
+                height: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.item-image {
+    width: 80%;
+    margin: 30px auto 40px;
+    // :global {
+    //     .skeleton-image {
+    //         height: 129px;
+    //     }
+    // }
+}
+.item-colors {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    :global {
+        .skeleton-item {
+            margin: 0 5px 10px;
+        }
+    }
+}
+.mg-x-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
