@@ -12,9 +12,9 @@ import ListItem from 'src/components/list/list-item';
 
 import { Products } from '../../mockData'
 
-import SkeletonListItem from 'src/components/list/skeleton-list-item'
+import SkeletonList from 'src/components/list/skeleton-list'
 
-
+import { get } from 'src/api/createHttpRequest'
 
 export interface EmbraceYourLightProps {
     children?:React.ReactNode
@@ -22,11 +22,20 @@ export interface EmbraceYourLightProps {
 
 const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
     const [loading, setLoading] = useState(true)
-    useEffect(() => {
-        setTimeout(() => {
-            // setLoading(false)
-        }, 500)
-    }, [])
+    const [products, setProducts] = useState([])
+    React.useEffect(() => {
+        get("/api/products")
+          .then((data) => {
+            setTimeout(() => {
+                setLoading(false)
+            }, 500)
+              if (data.code === 200) {
+                  setProducts(data.data)
+                  console.log('data', data.data);
+                  console.log('data-10890', data.data["10890"])
+              }
+          });
+    }, []);
 
     const CardSkeleton = () => {
         return (
@@ -40,64 +49,41 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
         )
     }
 
-    console.log('10788', Products["10788"])
-
     return (
         <>
-    
-
             <div className={styles['list-container']}>
                 {
-                    loading &&  Array.from({length: 5}).map((item, index) => 
-                        <SkeletonListItem key={index}/>
-                    ) 
+                    <SkeletonList count={3} loading={loading}>
+                        <ListItem data={products["10796"]} defaultColor="C2"/>
+                        <ListItem data={products["10888"]} defaultColor="C1" showNewTag={true}/>
+                        <ListItem data={products["10887"]} defaultColor="C1" showNewTag={true}/>
+                    </SkeletonList>
                 }
-                {
-                    !loading && 
-                   <>
-                        <ListItem data={Products["10796"]} defaultColor="C2"/>
-                        <ListItem data={Products["10888"]} defaultColor="C1" showNewTag={true}/>
-                        <ListItem data={Products["10887"]} defaultColor="C1" showNewTag={true}/>
-                   </>
-                }
-               
             </div>
 
             
             <div className={styles['list-container']}>
                 {
-                    loading &&  Array.from({length: 5}).map((item, index) => 
-                        <SkeletonListItem key={index}/>
-                    ) 
+                    <SkeletonList count={3} loading={loading}>
+                       <ListItem data={products["10787"]} defaultColor="C1"/>
+                        <ListItem data={products["10892"]} defaultColor="C2" showNewTag={true}/>
+                        <ListItem data={products["10886"]} defaultColor="C2" showNewTag={true}/>
+                    </SkeletonList>
                 }
-                 {
-                    !loading && 
-                   <>
-                        <ListItem data={Products["10787"]} defaultColor="C1"/>
-                        <ListItem data={Products["10892"]} defaultColor="C2" showNewTag={true}/>
-                        <ListItem data={Products["10886"]} defaultColor="C2" showNewTag={true}/>
-                   </>
-                }
-                
             </div>
 
             {/* phone 和desktop显示不同 */}
-            <ListItem data={Products["10885"]} defaultColor="C2" showNewTag={true}/>
-
+            <SkeletonList loading={loading}>
+                <ListItem data={products["10885"]} defaultColor="C2" showNewTag={true}/>
+            </SkeletonList>
 
             <div className={styles['list-container']}>
                 {
-                    loading &&  Array.from({length: 5}).map((item, index) => 
-                        <SkeletonListItem key={index}/>
-                    ) 
-                }
-                 {
-                    !loading && 
-                   <>
-                        <ListItem data={Products["10898"]} defaultColor="C3" showNewTag={true}/>
-                        <ListItem data={Products["10889"]} defaultColor="C2" showNewTag={true}/>
-                        <ListItem data={Products["10804"]} defaultColor="C2"/>
-                   </>
+                    <SkeletonList count={3} loading={loading}>
+                       <ListItem data={products["10898"]} defaultColor="C3" showNewTag={true}/>
+                        <ListItem data={products["10889"]} defaultColor="C2" showNewTag={true}/>
+                        <ListItem data={products["10804"]} defaultColor="C2"/>
+                    </SkeletonList>
                 }
                 
             </div>
@@ -105,93 +91,57 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
             {/* clearfix */}
             <div className={styles['list-container']}>
                 {
-                    loading &&  Array.from({length: 5}).map((item, index) => 
-                        <SkeletonListItem key={index}/>
-                    ) 
-                }
-                {
-                    !loading && 
-                    <>
-                        <ListItem data={Products["10891"]} defaultColor="C2" showNewTag={true}/>
-                        <ListItem data={Products["10899"]} defaultColor="C3" showNewTag={true}/>
-                        <ListItem data={Products["10800"]} defaultColor="C2"/>
-                    </>
+                    <SkeletonList count={3} loading={loading}>
+                       <ListItem data={products["10891"]} defaultColor="C2" showNewTag={true}/>
+                        <ListItem data={products["10899"]} defaultColor="C3" showNewTag={true}/>
+                        <ListItem data={products["10800"]} defaultColor="C2"/>
+                    </SkeletonList>
                 }
             </div>
 
-            <ListItem data={Products["10890"]} defaultColor="C2" showNewTag={true}/>
-
+            <SkeletonList loading={loading}>
+                <ListItem data={products["10890"]} defaultColor="C1" showNewTag={true}/>
+            </SkeletonList>
+          
             <div className={styles['list-container']}>
-                {
-                    loading &&  Array.from({length: 5}).map((item, index) => 
-                        <SkeletonListItem key={index}/>
-                    ) 
-                }
-                {
-                    !loading && 
-                    <>
-                        <ListItem data={Products["10783"]} defaultColor="C2"/>
-                        <ListItem data={Products["10784"]} defaultColor="C3"/>
-                        <ListItem data={Products["10785"]} defaultColor="C3"/>
-                    </>
-                }
+                <SkeletonList count={3} loading={loading}>
+                    <ListItem data={products["10783"]} defaultColor="C2"/>
+                    <ListItem data={products["10784"]} defaultColor="C3"/>
+                    <ListItem data={products["10785"]} defaultColor="C3"/>
+                </SkeletonList>
             </div>
 
 
             <div className={styles['list-container']}>
-                {
-                    loading &&  Array.from({length: 5}).map((item, index) => 
-                        <SkeletonListItem key={index}/>
-                    ) 
-                }
-                {
-                    !loading && 
-                    <>
-                       <ListItem data={Products["10786"]} defaultColor="C3"/>
-                        <ListItem data={Products["10788"]} defaultColor="C3"/>
-                        <ListItem data={Products["10802"]} defaultColor="C2"/>
-                    </>
-                }
+                 <SkeletonList count={3} loading={loading}>
+                        <ListItem data={products["10786"]} defaultColor="C3"/>
+                        <ListItem data={products["10788"]} defaultColor="C3"/>
+                        <ListItem data={products["10802"]} defaultColor="C2"/>
+                </SkeletonList>
             </div>
 
             {/* phone 和desktop显示不同 */}
-            <ListItem data={Products["10799"]} defaultColor="C1"/>
-
+            <SkeletonList loading={loading}>
+                <ListItem data={Products["10799"]} defaultColor="C1"/>
+            </SkeletonList>
 
             <div className={styles['list-container']}>
-                {
-                    loading &&  Array.from({length: 5}).map((item, index) => 
-                        <SkeletonListItem key={index}/>
-                    ) 
-                }
-                {
-                    !loading && 
-                    <>
-                      <ListItem data={Products["10791"]} defaultColor="C2"/>
-                        <ListItem data={Products["10792"]} defaultColor="C1"/>
-                        <ListItem data={Products["10803"]} defaultColor="C3"/>
-                    </>
-                }
-                
+                <SkeletonList count={3} loading={loading}>
+                        <ListItem data={products["10791"]} defaultColor="C2"/>
+                        <ListItem data={products["10792"]} defaultColor="C1"/>
+                        <ListItem data={products["10803"]} defaultColor="C3"/>
+                </SkeletonList>
             </div>
            
             <div className={styles['list-container']}>
-                {
-                    loading &&  Array.from({length: 5}).map((item, index) => 
-                        <SkeletonListItem key={index}/>
-                    ) 
-                }
-                {
-                    !loading && 
-                    <>
-                        <ListItem data={Products["10793"]} defaultColor="C3"/>
-                        <ListItem data={Products["10794"]} defaultColor="C3"/>
-                        <ListItem data={Products["10795"]} defaultColor="C3"/>
-                        <ListItem data={Products["10797"]} defaultColor="C3"/>
-                        <ListItem data={Products["10801"]} defaultColor="C3"/>
-                        <ListItem data={Products["10798"]} defaultColor="C1"/>
-                    </>
-                }
+                <SkeletonList count={6} loading={loading}>
+                        <ListItem data={products["10793"]} defaultColor="C3"/>
+                        <ListItem data={products["10794"]} defaultColor="C3"/>
+                        <ListItem data={products["10795"]} defaultColor="C3"/>
+                        <ListItem data={products["10797"]} defaultColor="C3"/>
+                        <ListItem data={products["10801"]} defaultColor="C3"/>
+                        <ListItem data={products["10798"]} defaultColor="C1"/>
+                </SkeletonList>
                 
             </div>
             
