@@ -78,7 +78,7 @@ const ListItem: React.FC<ListItemProps> = (props) => {
     const curProduct = data[defaultColor][0];
     
     return (
-       <div className={styles['list-item']}>
+       <div className={classNames(styles['list-item'])}>
 
            <div className={styles['item-image']}>
                 <a className={styles['event-list-link']} href={curProduct.detail_url} title={curProduct.product_name}>
