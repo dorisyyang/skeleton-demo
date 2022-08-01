@@ -39,11 +39,12 @@
     .logo {
         position: absolute;
         left: 50%;
-        width: 74px;
-        height: 30px;
-        margin-top: 10px;
-        margin-left: -37px;
+        top: 50%;
+        transform: translate(-50%,-50%);
         transition: all 0.25s ease-out;
+        svg {
+            vertical-align: middle;
+        }
     }
 
     .btn-right-shortcut {

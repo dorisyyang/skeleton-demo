@@ -1,8 +1,9 @@
-import React, { useState, PropsWithChildren } from 'react'
+import React, { useState, useMemo } from 'react'
 import styles from '@/components/list/list-item.module.scss'
 import classNames from 'classnames';
 import { New } from 'src/components/icons'
-import { layoutContext } from 'src/components/layout/layoutContext' 
+import { layoutContext } from 'src/components/layout/layoutContext'
+import LazyLoad from 'react-lazyload';
 
 export interface IProductItem {
     model_id: string,
@@ -31,7 +32,10 @@ export interface ListItemProps {
     data: IProduct,
     defaultColor: string,
     showNewTag?: boolean,
-    children?:React.ReactNode
+    newTagTopPostion?: number, // when showNewTag is true，can set newTag top position
+    isFlipImages?: boolean, // flip noraml and hover img
+    children?:React.ReactNode,
+    className?: string
 }
 
 const FRAME_SIZE_S = '280x140';
@@ -72,32 +76,53 @@ const ListItem: React.FC<ListItemProps> = (props) => {
         data,
         defaultColor = "C1",
         showNewTag = false,
+        newTagTopPostion = 0,
+        isFlipImages = false,
+        className,
     } = props;
 
     const { isMobile } = React.useContext(layoutContext);
-    const curProduct = data[defaultColor][0];
+
+    const [curColor, setCurColor] = useState(defaultColor)
+
+    const curProduct = useMemo(() => {
+        return data[curColor][0]
+    }, [curColor])
+
+    const searchAndReplaceValue = isFlipImages ? [["gray"], ["white"]] : [["gray", "_3"], ["white", "_1"]]
     
     return (
-       <div className={classNames(styles['list-item'])}>
-
+       <div className={classNames(styles['list-item'], className)}>
            <div className={styles['item-image']}>
                 <a className={styles['event-list-link']} href={curProduct.detail_url} title={curProduct.product_name}>
-                    <img className={classNames(styles['img-main'], "lazyload")} src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src={generateFullImageUrl(replaceImagUrl<string>(curProduct.image_file, "gray", "white"), FRAME_SIZE_L)} alt={curProduct.product_name + ' ' + curProduct.product_type} width="600" height="300"/>
+                    <LazyLoad>
+                        <img className={classNames(styles['img-main'])} 
+                            src={generateFullImageUrl(replaceImagUrl<string[]>(curProduct.image_file, (!isFlipImages ? ["gray"] : ["gray", "_3"]), (!isFlipImages ? ["white"] : ["white", "_1"])), FRAME_SIZE_L, true)} 
+                            alt={curProduct.product_name + ' ' + curProduct.product_type} width="600" height="300"/>
+                    </LazyLoad>
                     {
-                        !isMobile && <img className={classNames(styles['img-hover'], "lazyload")} src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src={generateFullImageUrl(replaceImagUrl<string>(curProduct.image_file, "gray", "white"), FRAME_SIZE_L, true)} alt={curProduct.product_name + ' ' + curProduct.product_type}/>
-                    }
-                    {
-                        showNewTag && <New className={styles['new-tag']}/>
+                        !isMobile && 
+                        <LazyLoad>
+                            <img className={classNames(styles['img-hover'])} 
+                            src={generateFullImageUrl(replaceImagUrl<string[]>(curProduct.image_file, (!isFlipImages ? ["gray", "_3"] : ["gray"]), (!isFlipImages ? ["white", "_1"] :  ["white"])), FRAME_SIZE_L, true)} 
+                            alt={curProduct.product_name + ' ' + curProduct.product_type} width="600" height="300"/>
+                        </LazyLoad>
+                        
                     }
                 </a>
+                {
+                  showNewTag && <New className={styles['new-tag']} style={{top: `${newTagTopPostion}px`}}/>
+                }
            </div>
            
            <div className={classNames(styles['item-colors'], )}>
                {
                    Object.keys(data).map((key) => 
-                    <div className={classNames(styles['item-color'], key === defaultColor ? styles['current-color'] : '')} key={key}>
+                    <div className={classNames(styles['item-color'], key === curColor ? styles['current-color'] : '')} key={key} onClick={() => {setCurColor(key)}}>
                         <span className={styles['image-icon']}>
-                            <img className="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/product/color/spl8214.jpg?im=Resize,width=32,height=32,aspect=fill;UnsharpMask,sigma=1.0,gain=1.0&amp;q=85" alt="Black" title="Black" width="32" height="32"/>
+                            <LazyLoad>
+                                <img src={generateFullImageUrl(data[key][0].product_image_icon, COLOR_ICON_S, true)} alt={curProduct.product_color} title={curProduct.product_color} width="32" height="32"/>
+                            </LazyLoad>
                         </span>
                     </div>
                    )

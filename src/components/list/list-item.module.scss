@@ -1,8 +1,11 @@
 .list-item {
+	display: block;
 	width: 100%;
 	max-width: 460px;
 	margin: 0 auto;
 	text-align: center;
+	// content-visibility: auto;
+	// contain-intrinsic-size: 1px 5000px;
 	@media (min-width: 768px) {
 		padding: 0 10px;
 	}
@@ -91,9 +94,11 @@
 		@media (min-width: 768px) {
 			max-width: 30px;
 		}
-
 		@media (min-width: 900px) {
 			max-width: 40px;
+		}
+		@media (min-width: 1350px) {
+			max-width: 55px;
 		}
 	}
 
@@ -132,7 +137,8 @@
 
 	.item-current-color,.out-of-stock {
     	padding-top: 6px;
-    	color: #acacac;
+    	// color: #acacac;
+		color: #6f6f6f; // for improve: accessibilty:Background and foreground colors do not have a sufficient contrast ratio.
 		font-size: 15px;
         font-weight: bold;
         line-height: 1.1;

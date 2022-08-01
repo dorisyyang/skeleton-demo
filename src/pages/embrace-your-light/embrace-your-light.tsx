@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, ReactEventHandler, useRef } from 'react'
+import React, { useState, useEffect, useContext, useRef, PropsWithChildren} from 'react'
 
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
@@ -16,11 +16,8 @@ import { get } from 'src/api/createHttpRequest'
 
 import { layoutContext } from 'src/components/layout/layoutContext' 
 
-export interface EmbraceYourLightProps {
-    children?:React.ReactNode
-}
 
-const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
+const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () => {
     const [loading, setLoading] = useState(true)
     const [products, setProducts] = useState([])
     const { isMobile } = useContext(layoutContext)
@@ -60,14 +57,14 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
             {/* top banner */}
             <div className={styles["lele-top-banner"]}>
                 <picture className={styles["banner-box"]}>
-                    <source media="(min-width: 768px)" srcSet="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner.jpg"/>
-                    <source media="(min-width: 300px)" srcSet="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner-m.jpg"/>
-                    <img src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner.jpg" alt="LELE PONS X EYEBUYDIRECT" width="1920"/>
+                    <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner.jpg"/>
+                    <source media="(min-width: 300px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner-m.jpg"/>
+                    <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner.jpg" alt="LELE PONS X EYEBUYDIRECT" width="1920"/>
                 </picture>
                 <div className={styles["top-txt"]}>
                     <h1 className={styles["txt-box"]}>
                         <span className={styles["img-box"]}>
-                            <img src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/banner-title-n.svg" alt="Embrace your light" />
+                            <img className="lazyload" src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/banner-title-n.svg" alt="Embrace your light" width="859" height="220"/>
                         </span>
                     </h1>
                     <p>15 new styles. Endless ways to shine.</p>
@@ -95,7 +92,7 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                     <SkeletonList count={3} loading={loading}>
                         <ListItem data={products["10796"]} defaultColor="C2"/>
                         <ListItem data={products["10888"]} defaultColor="C1" showNewTag={true}/>
-                        <ListItem data={products["10887"]} defaultColor="C1" showNewTag={true}/>
+                        <ListItem data={products["10887"]} defaultColor="C1" showNewTag={true} newTagTopPostion={-5}/>
                     </SkeletonList>
                 }
             </div>
@@ -106,9 +103,9 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                 <div className={styles["one-left"]}>
                     <div className={styles["img-box"]}>
                         <picture>
-                            <source media="(min-width: 768px)" srcSet="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1.jpg"/>
-                            <source media="(min-width: 300px)" srcSet="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1-m.jpg"/>
-                            <img className="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1.jpg" alt="Elsa / Impression" />
+                            <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1.jpg"/>
+                            <source media="(min-width: 300px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1-m.jpg"/>
+                            <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1.jpg" alt="Elsa / Impression"/>
                         </picture>
                         {/* {
                             !isMobile && <div className={styles["img-cover"]}></div>
@@ -120,9 +117,9 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                 <div className={styles["one-right"]}>
                     <div className={styles["img-box"]}>
                         <picture>
-                            <source media="(min-width: 768px)" srcSet="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2.jpg"/>
-                            <source media="(min-width: 300px)" srcSet="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2-m.jpg"/>
-                            <img className="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2.jpg" alt="Elsa / Impression" />
+                            <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2.jpg"/>
+                            <source media="(min-width: 300px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2-m.jpg"/>
+                            <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2.jpg" alt="Elsa / Impression" />
                         </picture>
                         {/* {
                             !isMobile && <div className={styles["img-cover"]}></div>
@@ -137,8 +134,8 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                 {
                     <SkeletonList count={3} loading={loading}>
                        <ListItem data={products["10787"]} defaultColor="C1"/>
-                        <ListItem data={products["10892"]} defaultColor="C2" showNewTag={true}/>
-                        <ListItem data={products["10886"]} defaultColor="C2" showNewTag={true}/>
+                        <ListItem data={products["10892"]} defaultColor="C2" showNewTag={true} newTagTopPostion={-15}/>
+                        <ListItem data={products["10886"]} defaultColor="C2" showNewTag={true} newTagTopPostion={-15}/>
                     </SkeletonList>
                 }
             </div>
@@ -150,12 +147,12 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                     <picture className={styles["img-box"]}>
                         <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3.jpg"/>
                         <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3-m.jpg"/>
-                        <img className='lazyload' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3.jpg" alt="Shine on" />
+                        <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3.jpg" alt="Shine on" />
                     </picture>
 
                     <div className={styles["lele-svg"]}>
                         <div className={styles["svg-box"]}>
-                            <img className='lazyload' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" />
+                            <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" />
                         </div>
                     </div>
                 </div>
@@ -166,9 +163,9 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                         <p className={styles["lele-frame-content-text"]}>Being like everyone else is boring! Celebrate what makes you special with bold sunglasses that shine.</p>
                     </div>
 
-                     {/* phone 和desktop显示不同 desktop待修改: main 和 hover的刚好相反 revert*/}
+                     {/* phone 和desktop显示不同 desktop: main 和 hover的刚好相反：flip*/}
                      <SkeletonList loading={loading}>
-                        <ListItem data={products["10885"]} defaultColor="C2" showNewTag={true}/>
+                        <ListItem className='content-frame-item' data={products["10885"]} defaultColor="C2" showNewTag={true} isFlipImages={true}/>
                     </SkeletonList>
                 </div>
                
@@ -179,8 +176,8 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
             <div className={styles['list-container']}>
                 {
                     <SkeletonList count={3} loading={loading}>
-                       <ListItem data={products["10898"]} defaultColor="C3" showNewTag={true}/>
-                        <ListItem data={products["10889"]} defaultColor="C2" showNewTag={true}/>
+                        <ListItem data={products["10898"]} defaultColor="C3" showNewTag={true} newTagTopPostion={-20}/>
+                        <ListItem data={products["10889"]} defaultColor="C2" showNewTag={true} newTagTopPostion={-15}/>
                         <ListItem data={products["10804"]} defaultColor="C2"/>
                     </SkeletonList>
                 }
@@ -189,7 +186,8 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
 
             <div className={styles["lele-video-banner"]}>
                 <div className={styles["video-box"]}>
-                    <video ref={videoRef} className={classNames(styles["video-player"], {[styles["vd-c"]]: !playVideo})} poster="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/video-banner-cover.jpg" controls={true} muted={playVideo ? false : true} autoPlay={true} loop={true} playsInline={true}>
+                    <video ref={videoRef} className={classNames("lazyload", styles["video-player"], {[styles["vd-c"]]: !playVideo})} data-poster="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/video-banner-cover.jpg" 
+                        controls={true} muted={playVideo ? false : true} autoPlay={true} loop={true} playsInline={true} width="1920" height="1080">
                         <source type="video/mp4" src={playVideo ? "https://img.ebdcdn.com/video/collections/lele-banner-video-01-new.mp4" : "https://img.ebdcdn.com/video/collections/lele-banner-video.mp4"} />
                     </video>
                     <meta itemProp="name" content="Lele Pons X EYEBUYDIRECT" />
@@ -201,13 +199,13 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                         <div className={styles["video-text-content"]}>
                             <h2>
                                 <div className={styles["img-box"]}>
-                                    <img className="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/video-title.svg" alt="Lele Pons X EYEBUYDIRECT" />
+                                    <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/video-title.svg" alt="Lele Pons X EYEBUYDIRECT" width="810" height="130"/>
                                 </div>
                             </h2>
-                            <a className={classNames(styles["tips-video"], styles["text-btn"])}  data-width="1280" data-height="720" data-event-cate="Video" data-event-name="Tips Index" data-event-label="Lele Pons X EYEBUYDIRECT" onClick={handlePlayVideo}>
-                                <img className="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-play.svg" alt="" />
+                            <span className={classNames(styles["tips-video"], styles["text-btn"])}  data-width="1280" data-height="720" data-event-cate="Video" data-event-name="Tips Index" data-event-label="Lele Pons X EYEBUYDIRECT" onClick={handlePlayVideo}>
+                                <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-play.svg" alt=""  width="21" height="24"/>
                                 <span>Play video</span>
-                            </a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -229,12 +227,12 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                     <picture className={styles["img-box"]}>
                         <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4.jpg"/>
                         <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4-m.jpg"/>
-                        <img className='lazyload' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4.jpg" alt="Good to glow" />
+                        <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4.jpg" alt="Good to glow" />
                     </picture>
 
                     <div className={styles["lele-svg"]}>
                         <div className={styles["svg-box"]}>
-                            <img className='lazyload' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" />
+                            <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" />
                         </div>
                     </div>
                 </div>
@@ -247,7 +245,7 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
 
                      {/* phone 和desktop显示不同 desktop待修改*/}
                      <SkeletonList loading={loading}>
-                        <ListItem data={products["10890"]} defaultColor="C2" showNewTag={true}/>
+                        <ListItem className='content-frame-item' data={products["10890"]} defaultColor="C2" showNewTag={true} isFlipImages={true}/>
                     </SkeletonList>
                 </div>
                
@@ -268,7 +266,7 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                     <picture>
                         <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-5.jpg?q=85" />
                         <source media="(min-width: 300px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-5-m.jpg?q=85" />
-                        <img className="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-5.jpg?q=85" alt="Impression" />
+                        <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-5.jpg?q=85" alt="Impression" />
                     </picture>  
                     <span className={styles['frame-name']}>Impression</span>
                 </div> 
@@ -311,12 +309,12 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                     <picture className={styles["img-box"]}>
                         <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6.jpg"/>
                         <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6-m.jpg"/>
-                        <img className='lazyload' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6.jpg" alt="Bright minded" />
+                        <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6.jpg" alt="Bright minded" />
                     </picture>
 
                     <div className={styles["lele-svg"]}>
                         <div className={styles["svg-box"]}>
-                            <img className='lazyload' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" />
+                            <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" width="285" height="285"/>
                         </div>
                     </div>
                 </div>
@@ -329,7 +327,7 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
 
                     {/* phone 和desktop显示不同 */}
                     <SkeletonList loading={loading}>
-                        <ListItem data={products["10799"]} defaultColor="C1"/>
+                        <ListItem className='content-frame-item' data={products["10799"]} defaultColor="C1" isFlipImages={true}/>
                     </SkeletonList>
                 </div>
                
@@ -354,7 +352,7 @@ const EmbraceYourLight: React.FC<EmbraceYourLightProps> = (props) => {
                     <picture>
                         <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-7.jpg" />
                         <source media="(min-width: 300px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-7-m.jpg" />
-                        <img className="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-7.jpg" alt="Alexandra" />
+                        <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-7.jpg" alt="Alexandra" />
                     </picture> 
                     {/* 有动画 待修改 */}
                     {/* <div className={styles["img-cover"]}></div> */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from '@/components/layout/header/header-mobile.module.scss'
-import { Search, Favorite, Cart, Menu as IconMenu, Chat, Telephone, Mail, Local } from '../../icons'
+import { Search, Favorite, Cart, Menu as IconMenu, EbdLogo, Chat, Telephone, Mail, Local } from '../../icons'
 import { Drawer, Button } from '@eyebuydirect/ebd.front.lib'
 export interface HeaderMobileProps {
     children?:React.ReactNode
@@ -22,7 +22,7 @@ const HeaderMobile: React.FC<HeaderMobileProps> = (props) => {
                     </span>
                 </div>
                 <a className={styles.logo} href="/">
-                    <img src='/assets/images/ebd-logo-mobile.svg' alt='EyeBuyDirect.com' width={74} height={30} />
+                    <EbdLogo width={172} height={19} />
                 </a>
                 <ul className={styles['btn-right-shortcut']}>
                     <li>

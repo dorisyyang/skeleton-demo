@@ -74,7 +74,7 @@ const FooterMobile: React.FC<FooterMobileProps> = () => {
             </div>
             
             <div className={styles['footer-newsweek']}>
-                <img src={'/assets/images/newsweek.png'} width={70} height={35} alt='Newsweek' />
+                <img className='lazyload' data-src={'/assets/images/newsweek.png'} width={70} height={35} alt='Newsweek' />
             </div>
             <div className={styles.copyright}>
                 2006-{getYear(new Date())}{' '}
