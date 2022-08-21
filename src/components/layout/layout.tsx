@@ -5,25 +5,23 @@ import FooterMobile from './footer/footer-mobile';
 import HeaderDesktop from './header/header-desktop';
 import FooterDesktop from './footer/footer-desktop';
 import styles from '@/components/layout/layout.module.scss'
-import { useMediaQuery } from 'react-responsive'
+import useDevice from '../../hooks/useDevice'
 
 export interface LayoutProps {
     children?:React.ReactNode
 }
 
 const Layout: React.FC<LayoutProps> = ({children}) => {
-    const isMobile = useMediaQuery({
-        query: '(max-width: 1024px)'
-    })
+    const DEVICE = useDevice()
     return (
-        <LayoutContextProvider isMobile={isMobile}>
-            <div className={styles[`layout-${ isMobile ? "mobile" : "desktop"}`]}>
+        <LayoutContextProvider DEVICE={DEVICE}>
+            <div className={styles[`layout-${ DEVICE !== 'desktop' ? "mobile" : "desktop"}`]}>
                 {
-                    isMobile ? <HeaderMobile /> : <HeaderDesktop />
+                    DEVICE !== 'desktop' ? <HeaderMobile /> : <HeaderDesktop />
                 }
                 {children}
                 {
-                    isMobile ? <FooterMobile /> : <FooterDesktop />
+                    DEVICE !== 'desktop' ? <FooterMobile /> : <FooterDesktop />
                 }
             </div>
         </LayoutContextProvider>

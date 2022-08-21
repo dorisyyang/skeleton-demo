@@ -11,7 +11,7 @@ const SkeletonListItem: React.FC = () => {
             <div className={styles["item-colors"]}>
                 <Skeleton.Avatar count={4} width={24} height={24}/>
             </div>
-            <Skeleton className={styles['mg-x-auto']} count={2} spaceBetween={15} widthMultiple={['41%', '30%']} heightMultiple={[30, 16]}></Skeleton>
+            <Skeleton className={styles['img-x-auto']} count={2} spaceBetween={15} widthMultiple={['41%', '30%']} heightMultiple={[30, 16]}></Skeleton>
         </div>
     )
 }

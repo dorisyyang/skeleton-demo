@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef, PropsWithChildren} from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
@@ -16,15 +16,18 @@ import { get } from 'src/api/createHttpRequest'
 
 import { layoutContext } from 'src/components/layout/layoutContext' 
 
+import useAnimateOnScroll from '../../hooks/useAnimateOnScroll'
 
-const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () => {
+const EmbraceYourLight: React.FC = () => {
     const [loading, setLoading] = useState(true)
     const [products, setProducts] = useState([])
-    const { isMobile } = useContext(layoutContext)
+    const { DEVICE } = useContext(layoutContext)
 
     /*video bannner bof*/
     const [playVideo, setPlayVideo] = useState<boolean>(false);
     const videoRef  = useRef<HTMLVideoElement>(null)
+
+    const aniviewRef = useRef<HTMLDivElement>(null)
 
     const handlePlayVideo = () => {
         if (playVideo) {
@@ -45,11 +48,13 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                   console.log('data-10890', data.data["10890"])
               }
             //   setTimeout(() => {
-                setLoading(false)
+                // setLoading(false)
             //   }, 100)
           });
     }, []);
-    
+
+    /*scroll animate*/
+    useAnimateOnScroll(DEVICE!)
 
     return (
         <div className={styles["lele-container"]}>
@@ -86,8 +91,7 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                 <p>A collection of bold, bright, and expressive sunglasses to stand out and let your light shine  — in partnership with social media sensation and self-love advocate, Lele Pons.</p>
             </div>
 
-
-            <div className={styles['list-container']}>
+            <div ref={aniviewRef} className={classNames(styles['list-container'], "animate")}>
                 {
                     <SkeletonList count={3} loading={loading}>
                         <ListItem data={products["10796"]} defaultColor="C2"/>
@@ -99,17 +103,17 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
 
             {/* one bof */}
             {/* model banner */}
-            <div className={styles["lele-container-one"]}>
+            <div className={classNames(styles["lele-container-one"])}>
                 <div className={styles["one-left"]}>
                     <div className={styles["img-box"]}>
                         <picture>
                             <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1.jpg"/>
                             <source media="(min-width: 300px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1-m.jpg"/>
-                            <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1.jpg" alt="Elsa / Impression"/>
+                            <img className="lazyload animate"  data-animate-device="desktop"  data-animation="anicover" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-1.jpg" alt="Elsa / Impression"/>
                         </picture>
-                        {/* {
-                            !isMobile && <div className={styles["img-cover"]}></div>
-                        } */}
+                        {
+                            DEVICE === 'desktop' && <div className={classNames(styles["img-cover"], "animate")} data-animate-device="desktop" data-animation="imgc"></div>
+                        }
                         
                     </div>
                 </div>
@@ -119,18 +123,18 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                         <picture>
                             <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2.jpg"/>
                             <source media="(min-width: 300px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2-m.jpg"/>
-                            <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2.jpg" alt="Elsa / Impression" />
+                            <img className="lazyload animate" data-animate-device="desktop" data-animation="anicovera" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-2.jpg" alt="Elsa / Impression" />
                         </picture>
-                        {/* {
-                            !isMobile && <div className={styles["img-cover"]}></div>
-                        } */}
+                        {
+                            DEVICE === 'desktop' && <div className={classNames(styles["img-cover"], "animate")} data-animate-device="desktop" data-animation="imgca"></div>
+                        }
                         <span className={classNames(styles['frame-name'], styles["frame-name-two"])}>Elsa / Impression</span>
                     </div>
                 </div>
             </div>
 
             {/* model frame */}
-            <div className={styles['list-container']}>
+            <div className={classNames(styles['list-container'], styles['frame-list-one'], "animate")}>
                 {
                     <SkeletonList count={3} loading={loading}>
                        <ListItem data={products["10787"]} defaultColor="C1"/>
@@ -142,15 +146,15 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
             {/* one eof */}
 
             {/* two bof */}
-            <div className={classNames(styles["lele-container-two"])}>
+            <div className={classNames(styles["lele-container-two"], "animate")}>
                 <div className={styles["content-img"]}>
                     <picture className={styles["img-box"]}>
                         <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3.jpg"/>
                         <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3-m.jpg"/>
                         <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3.jpg" alt="Shine on" />
                     </picture>
-
-                    <div className={styles["lele-svg"]}>
+                    
+                    <div className={classNames(styles["lele-svg"], "js-lele-rotate")}>
                         <div className={styles["svg-box"]}>
                             <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" />
                         </div>
@@ -173,7 +177,7 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
             {/* two eof */}
 
 
-            <div className={styles['list-container']}>
+            <div className={classNames(styles['list-container'], styles['frame-list-two'], "animate")}>
                 {
                     <SkeletonList count={3} loading={loading}>
                         <ListItem data={products["10898"]} defaultColor="C3" showNewTag={true} newTagTopPostion={-20}/>
@@ -184,7 +188,7 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                 
             </div>
 
-            <div className={styles["lele-video-banner"]}>
+            <div className={classNames(styles["lele-video-banner"], "animate")}>
                 <div className={styles["video-box"]}>
                     <video ref={videoRef} className={classNames("lazyload", styles["video-player"], {[styles["vd-c"]]: !playVideo})} data-poster="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/video-banner-cover.jpg" 
                         controls={true} muted={playVideo ? false : true} autoPlay={true} loop={true} playsInline={true} width="1920" height="1080">
@@ -210,8 +214,8 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                     </div>
                 </div>
             </div>
-
-            <div className={styles['list-container']}>
+            
+            <div className={classNames(styles['list-container'], styles['frame-list-three'], "animate")}>
                 {
                     <SkeletonList count={3} loading={loading}>
                        <ListItem data={products["10891"]} defaultColor="C2" showNewTag={true}/>
@@ -222,7 +226,7 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
             </div>
 
             {/* three bof */}
-            <div className={classNames(styles["lele-container-two"], styles["revert"])}>
+            <div className={classNames(styles["lele-container-two"], styles["revert"], "animate")}>
                 <div className={styles["content-img"]}>
                     <picture className={styles["img-box"]}>
                         <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4.jpg"/>
@@ -230,7 +234,7 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                         <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4.jpg" alt="Good to glow" />
                     </picture>
 
-                    <div className={styles["lele-svg"]}>
+                    <div className={classNames(styles["lele-svg"], "js-lele-rotate")}>
                         <div className={styles["svg-box"]}>
                             <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" />
                         </div>
@@ -251,8 +255,8 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                
             </div>
             {/* three eof */}
-          
-            <div className={styles['list-container']}>
+            
+            <div className={classNames(styles['list-container'], styles['frame-list-four'], "animate")}>
                 <SkeletonList count={3} loading={loading}>
                     <ListItem data={products["10783"]} defaultColor="C2"/>
                     <ListItem data={products["10784"]} defaultColor="C3"/>
@@ -261,7 +265,7 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
             </div>
 
             {/* five bof */}
-            <div className={styles["lele-container-five"]}>
+            <div className={classNames(styles["lele-container-five"], "animate", "js-lele-container-five")}>
                 <div className={styles['img-box']}>    
                     <picture>
                         <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-5.jpg?q=85" />
@@ -274,37 +278,37 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                     <div className={styles['container-five-text-container']}>
                         <div className={styles['container-five-text-content']}>
                             <div className={styles['text-box']}>
-                                <span>“being</span>    
+                                <span className='js-text' data-animation="textanione">“being</span>    
                             </div>
                             <div className={styles['text-box']}>
-                                <span>comfortable and</span>
+                                <span className='js-text' data-animation="textanitwo">comfortable and</span>
                             </div>
                             <div className={styles['text-box']}>
-                                <span>loving who you</span>
+                                <span className='js-text' data-animation="textanitwo">loving who you</span>
                             </div>
                             <div className={styles['text-box']}>
-                                <span>are is the best</span>
+                                <span className='js-text' data-animation="textanithree">are is the best</span>
                             </div>
                             <div className={styles['text-box']}>
-                                <span>look of all.”</span>
+                                <span className='js-text' data-animation="textanifour">look of all.”</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* five eof */}
 
-
-            <div className={styles['list-container']}>
+            <div className={classNames(styles['list-container'], styles['frame-list-five'], "animate")}>
                  <SkeletonList count={3} loading={loading}>
                         <ListItem data={products["10786"]} defaultColor="C3"/>
                         <ListItem data={products["10788"]} defaultColor="C3"/>
                         <ListItem data={products["10802"]} defaultColor="C2"/>
                 </SkeletonList>
             </div>
+            {/* five eof */}
+
 
             {/* six bof */}
-            <div className={classNames(styles["lele-container-two"])}>
+            <div className={classNames(styles["lele-container-two"], "animate")}>
                 <div className={styles["content-img"]}>
                     <picture className={styles["img-box"]}>
                         <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6.jpg"/>
@@ -312,7 +316,7 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                         <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6.jpg" alt="Bright minded" />
                     </picture>
 
-                    <div className={styles["lele-svg"]}>
+                    <div className={classNames(styles["lele-svg"], "js-lele-rotate")}>
                         <div className={styles["svg-box"]}>
                             <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" width="285" height="285"/>
                         </div>
@@ -332,36 +336,37 @@ const EmbraceYourLight: React.FC<PropsWithChildren<PropsWithChildren<{}>>> = () 
                 </div>
                
             </div>
-            {/* six eof */}
+            
 
-            <div className={styles['list-container']}>
+            <div className={classNames(styles['list-container'], styles['frame-list-six'], "animate")}>
                 <SkeletonList count={3} loading={loading}>
                         <ListItem data={products["10791"]} defaultColor="C2"/>
                         <ListItem data={products["10792"]} defaultColor="C1"/>
                         <ListItem data={products["10803"]} defaultColor="C3"/>
                 </SkeletonList>
             </div>
+            {/* six eof */}
 
             {/* seven bof */}
-            <div>
+            <div className={classNames("animate")}>
                 <h3 className={styles["lele-title-footer"]}>Shade? Never heard of it...</h3>
                 <p className={styles["lele-text-footer"]}>Step into summer with confidence, and a colorful pair of sunglasses to complete the look.</p>
             </div>
-            <div className={classNames(styles["lele-container-seven"], 'clearfix')}>
+            <div className={classNames(styles["lele-container-seven"], 'clearfix', "animate")}>
                 <div className={styles["img-box"]}>        
                     <picture>
                         <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-7.jpg" />
                         <source media="(min-width: 300px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-7-m.jpg" />
-                        <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-7.jpg" alt="Alexandra" />
+                        <img className="lazyload animate" data-animate-device="desktop" data-animation="anicover" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-7.jpg" alt="Alexandra" />
                     </picture> 
-                    {/* 有动画 待修改 */}
-                    {/* <div className={styles["img-cover"]}></div> */}
+                    {/* 有动画*/}
+                    <div className={classNames(styles["img-cover"], "animate")} data-animate-device="desktop" data-animation="imgc"></div>
                     <span className={classNames(styles["frame-name"], styles["frame-name-two"])}>Alexandra</span>
                 </div>
             </div>
             {/* seven eof */}
-           
-            <div className={styles['list-container']}>
+            
+            <div className={classNames(styles['list-container'], styles['frame-list-seven'], "animate")}>
                 <SkeletonList count={6} loading={loading}>
                         <ListItem data={products["10793"]} defaultColor="C3"/>
                         <ListItem data={products["10794"]} defaultColor="C3"/>

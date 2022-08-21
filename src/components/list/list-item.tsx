@@ -81,7 +81,7 @@ const ListItem: React.FC<ListItemProps> = (props) => {
         className,
     } = props;
 
-    const { isMobile } = React.useContext(layoutContext);
+    const { DEVICE } = React.useContext(layoutContext);
 
     const [curColor, setCurColor] = useState(defaultColor)
 
@@ -101,7 +101,7 @@ const ListItem: React.FC<ListItemProps> = (props) => {
                             alt={curProduct.product_name + ' ' + curProduct.product_type} width="600" height="300"/>
                     </LazyLoad>
                     {
-                        !isMobile && 
+                        DEVICE === 'desktop' && 
                         <LazyLoad>
                             <img className={classNames(styles['img-hover'])} 
                             src={generateFullImageUrl(replaceImagUrl<string[]>(curProduct.image_file, (!isFlipImages ? ["gray", "_3"] : ["gray"]), (!isFlipImages ? ["white", "_1"] :  ["white"])), FRAME_SIZE_L, true)} 

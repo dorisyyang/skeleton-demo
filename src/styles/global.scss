@@ -106,3 +106,126 @@ h6 {
 .hidden {
     visibility: hidden;
 }
+
+/*aniview animation bof*/
+
+	// @keyframes slideInUp {
+	// 	0% {
+	// 		opacity: 0;
+	// 		transform: translateY(20px);
+	// 	}
+	// 	100% {
+	// 		opacity: 1;
+	// 		transform: translateY(0);
+	// 	}
+	// }
+	// .animate__slideInUp {
+	// 	animation-name: slideInUp !important;
+	// 	transition: opacity ease 2s;
+	// }
+	.animate__animated {
+		animation-timing-function: cubic-bezier(0.24, 0, 0.64, 1);
+	}
+
+    @keyframes ani {
+        0% {
+            margin-top: 150px;
+        }
+        100% {           
+            margin-top: 0;
+        }
+    }
+
+    .animate__textanione {
+		animation:fivetextani 1s;
+		-webkit-animation:fivetextani 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+	}
+	.animate__textanitwo {
+		animation:fivetextani 1s;
+		-webkit-animation:fivetextani 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+		animation-delay:.5s;
+		-webkit-animation-delay:.5s;
+	}
+	.animate__textanithree {
+		animation:fivetextani 1s;
+		-webkit-animation:fivetextani 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+		animation-delay:1s;
+		-webkit-animation-delay:1s;
+	}
+	.animate__textanifour {
+		animation:fivetextani 1s;
+		-webkit-animation:fivetextani 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+		animation-delay:1.5s;
+		-webkit-animation-delay:1.5s;
+	}
+
+	@keyframes fivetextani {
+		0% {
+			position: absolute;
+			top: 150px;
+		}
+		100% {   
+			position: absolute;
+			top: 0;		
+		}
+	}
+
+    
+    .animate__anicover {
+		animation:anicover 1s;
+		-webkit-animation:anicover 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+	}
+	
+	.animate__anicovera {
+		animation:anicover 1s;
+		-webkit-animation:anicover 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+		animation-delay: 1.4s;
+		-webkit-animation-delay: 1.4s;
+	}
+	.animate__imgc {		
+		animation:imgcover 1s;
+		-webkit-animation:imgcover 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+	}
+	.animate__imgca {		
+		animation:imgcover 1s;
+		-webkit-animation:imgcover 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+		animation-delay: 1.4s;
+		-webkit-animation-delay: 1.4s;
+	}
+
+	@keyframes anicover {
+		0% {
+			transform: scale(1.05);
+		}
+		100% {           
+			transform: scale(1);		
+		}
+	}
+
+	@keyframes imgcover {
+		0% {
+			left: 0;
+		}
+		100% {           
+			left: 100%;		
+		}
+	}
+
+
+  /*aniview animation eof*/

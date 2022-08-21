@@ -1,14 +1,13 @@
-import React, { ReactElement, useMemo } from 'react';
+import React, { ReactElement, PropsWithChildren } from 'react';
 export interface LayoutContextProps {
-    children?: React.ReactNode,
-    isMobile?: boolean
+    DEVICE?: string
 }
 export const layoutContext = React.createContext<LayoutContextProps>({})
 
 export default function LayoutContextProvider({
     children,
     ...restProps
-}: LayoutContextProps): ReactElement {
+}: PropsWithChildren<LayoutContextProps>): ReactElement {
     return (
         <layoutContext.Provider value={restProps}>
             {children}

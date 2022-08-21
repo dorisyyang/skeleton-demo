@@ -135,7 +135,7 @@
     }
 
     @media (min-width: 1440px) {
-      font-size: 125px;
+      font-size: 92px;
     }
   }
 
@@ -186,19 +186,78 @@
   width: 100%;
   grid-template-columns: 100%;
   justify-content: center;
-  margin: 10px auto 50px;
+  margin: 40px auto 50px;
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
-    margin: 30px auto 85px;
+    margin: 60px auto 85px;
     padding: 0 10px;
   }
   @media (min-width: 1200px) {
-    margin: 20px auto 135px;
+    margin: 50px auto 135px;
     padding: 0 20px;
     max-width: 1420px;
   }
 }
 
+/*adjust list margin bof*/
+.frame-list-one {
+  margin-top: 40px;
+  @media (min-width: 900px) {
+    margin-top: 70px;
+	}
+  @media (min-width: 1200px) {
+    margin-top: 80px;
+	}
+  @media (min-width: 1440px) {
+    margin-top: 96px
+	}
+}
+
+.frame-list-three {
+  margin-top: 40px;
+  @media (min-width: 900px) {
+    margin-top: 70px;
+	}
+  @media (min-width: 1200px) {
+    margin-top: 80px;
+	}
+  @media (min-width: 1440px) {
+    margin-top: 104px;
+	}
+}
+
+.frame-list-two,
+.frame-list-four,
+.frame-list-six {
+  margin-top: 0;
+  @media (min-width: 768px) {
+    margin-top: 64px;
+	}
+  @media (min-width: 900px) {
+    margin-top: 134px;
+	}
+  @media (min-width: 1200px) {
+    margin-top: 154px;
+	}
+  @media (min-width: 1440px) {
+    margin-top: 234px;
+	}
+}
+
+.frame-list-five,
+.frame-list-seven {
+  margin-top: 40px;
+  @media (min-width: 900px) {
+    margin-top: 70px;
+	}
+  @media (min-width: 1200px) {
+    margin-top: 80px;
+	}
+  @media (min-width: 1440px) {
+    margin-top: 90px;
+	}
+}
+/*adjust list margin eof*/
 .lele-container-one {
   display: grid;
   grid-template-columns: minmax(auto, 768px);
@@ -609,7 +668,7 @@
 
 /* seven bof */
 .lele-title-footer {
-  max-width: 720px;
+  // max-width: 720px;
   margin: 0 auto;
   padding-left: 10px;
   padding-right: 10px;
@@ -738,4 +797,7 @@
       border-color: $btn-normal;
     }
   }
+}
+.none {
+  display: none !important;
 }
