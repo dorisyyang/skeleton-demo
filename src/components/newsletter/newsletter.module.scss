@@ -1,0 +1,111 @@
+.footer-join {
+    padding: 26px 10px;
+    text-align: center;
+    background: $primary-color;
+    @include bp(desktop) {
+        padding: 16px 10px 3px;
+    }
+
+    .join-d-title,
+    .join-m-title {
+        padding-bottom: 19px;
+        color: #fff;
+        vertical-align: middle;
+    }
+
+    .join-m-title {
+        font-size: 22px;
+        @include bp(tablet) {
+            display: none;
+        }
+    }
+
+    .join-d-title {
+        display: none;
+        @include bp(tablet) {
+            display: block;
+            font-size: 20px;
+        }
+        @include bp(desktop) {
+            display: inline-block;
+            padding-right: 10px;
+        }
+    }
+
+    .subscribe-form {
+        position: relative;
+        width: 100%;
+        max-width: 277px;
+        margin: 0 auto;
+        @include bp(desktop) {
+            display: inline-block;
+            max-width: 332px;
+        }
+
+        .newsletter-input {
+            padding: 9px 10px;
+            background: #fff;
+            border: none;
+            border-radius: 6px;
+
+            :global {
+                .ebd-input {
+                    margin-left: 6px;
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .newsletter-btn {
+            position: absolute;
+            top: 2px;
+            right: 0;
+            z-index: 10;
+            width: 42px;
+            height: 38px;
+            padding: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            span {
+                height: 24px;
+            }
+        }
+    }
+
+    .email-type {
+        display: none;
+    }
+}
+
+.tooltip {
+    @include bp(tablet) {
+        max-width: 500px !important;
+    }
+
+    :global {
+        .ebd-tooltip-inner {
+            padding: 15px 20px;
+            line-height: 1.4;
+        }
+
+        .ebd-tooltip-arrow {
+            bottom: -4px;
+            width: 17px;
+            height: 17px;
+        }
+
+        .ebd-tooltip-arrow-content {
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+}

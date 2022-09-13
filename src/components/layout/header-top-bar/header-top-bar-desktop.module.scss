@@ -1,0 +1,22 @@
+@import './header-top-bar-common';
+
+.header-top-bar {
+    justify-content: center;
+
+    .accessibility-mode {
+        position: absolute;
+        right: 20px;
+        padding: 3px 15px;
+        color: $default-black;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .accessibility-mode:hover {
+        // color: #000;
+        font-weight: bold;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 17px;
+    }
+}

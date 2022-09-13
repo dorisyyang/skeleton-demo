@@ -4,9 +4,11 @@
     min-height: 100px;
     color: $white;
     background: #282725;
+
     .links-title {
         :global {
             .ebd-collapse-header {
+                padding: 12.5px 0 12.5px 15px;
                 color: $white !important;
                 font-weight: 500;
                 font-size: 20px;
@@ -18,13 +20,21 @@
                     }
                 }
             }
+
+            .ebd-collapse-content {
+                line-height: 1.4;
+            }
+
+            .ebd-collapse-content-box {
+                padding: 12px 0 15px 15px;
+            }
         }
     }
 
     .links-item {
         display: block;
         margin: 10px 5px 10px 0;
-        padding-bottom: 2px;
+        padding-bottom: 5px;
         color: $white;
         font-size: 16px;
     }
@@ -65,9 +75,9 @@
         text-align: center;
 
         .text-link {
+            padding: 4px;
+
             a {
-                display: inline-block;
-                padding: 4px;
                 color: $white;
             }
         }

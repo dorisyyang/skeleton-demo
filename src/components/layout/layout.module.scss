@@ -1,12 +1,14 @@
 .layout-mobile {
     display: grid;
-    grid-template-rows: 50px 1fr auto;
+    // grid-template-rows: 50px 1fr auto;
+    grid-template-rows: 1fr auto auto;
     min-height: 100vh;
 }
 
 
 .layout-desktop {
     display: grid;
-    grid-template-rows: 50px 1fr auto;
+    // grid-template-rows: 50px 1fr auto;
+    grid-template-rows: 1fr auto auto;
     min-height: 100vh;
 }

@@ -55,7 +55,6 @@ const EmbraceYourLight: React.FC = () => {
 
     /*scroll animate*/
     useAnimateOnScroll(DEVICE!)
-
     return (
         <div className={styles["lele-container"]}>
             
