@@ -1,0 +1,125 @@
+@import './footer-common';
+
+.footer {
+    min-height: 100px;
+    padding: 0 20px;
+    color: $white;
+    background: #242424;
+
+    .footer-content {
+        max-width: $desktop-xl;
+        margin: 0 auto;
+    }
+
+    .link-wrap {
+        padding: 42px 0 38px;
+        line-height: 19px;
+    }
+
+    .follow-title {
+        margin-bottom: 26px;
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .follow-logo {
+        display: none;
+        @include bp(desktop) {
+            display: block;
+            float: left;
+        }
+    }
+
+    .language-link {
+        text-align: left;
+    }
+
+    .item {
+        float: none;
+        width: 100%;
+        @include bp(desktop) {
+            float: right;
+            width: 75%;
+            max-width: 950px;
+        }
+    }
+
+    .item-content {
+        float: left;
+        width: 27%;
+
+        &:last-child {
+            width: 19%;
+        }
+
+        a {
+            display: block;
+            padding-right: 5px;
+            padding-bottom: 6px;
+            color: $white;
+            font-size: 14px;
+            line-height: 19px;
+            opacity: 0.9;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .links-title {
+            margin-bottom: 20px;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .links-brands {
+            margin-top: 25px;
+        }
+
+        .brand-link {
+            text-decoration: underline;
+        }
+    }
+
+    .payment-logo {
+        margin-top: 16px;
+
+        & > a {
+            display: block;
+            margin-top: 7px;
+            color: $white;
+        }
+    }
+
+    .footer-newsweek {
+        margin-top: 10px;
+
+        img {
+            width: 75px;
+            height: 38px;
+        }
+    }
+
+    .copyright {
+        padding: 16px 0 34px;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: left;
+        border-top: 1px solid #575757;
+
+        a {
+            color: $white;
+        }
+    }
+
+    .other {
+        float: right;
+
+        & > span {
+            display: inline-block;
+            margin-left: 5px;
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+}

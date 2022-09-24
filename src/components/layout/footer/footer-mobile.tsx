@@ -1,28 +1,19 @@
-import React, { useEffect, useState, PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from 'react'
 import styles from '@/components/layout/footer/footer-mobile.module.scss'
-import { Collapse, Button } from '@eyebuydirect/ebd.front.lib'
+import { Collapse } from '@eyebuydirect/ebd.front.lib'
 import { Facebook, Instagram, Play, Tiktok, Twitter } from '../../icons'
 import { getYear } from 'date-fns'
-import { get } from 'src/api/createHttpRequest'
-import { IFooterData } from 'src/components/layout/interface'
+import useFooterData from 'src/hooks/useFooterData'
+
 const { Panel } = Collapse
 
 const FooterMobile: React.FC<PropsWithChildren<{}>> = () => {
-    const [footerData, setFooterData] = useState<IFooterData[]>([])
-
-    useEffect(() => {
-        get("/api/footer")
-          .then((data) => {
-              if (data.code === 200) {
-                setFooterData(data.data)
-              }
-          });
-    }, [])
+    const data = useFooterData();
     return (
         <div className={styles.footer}>
             <Collapse accordion ghost expandIconPosition='right'>
-                {footerData.length > 0 &&
-                    footerData.map((item, index: number) => (
+                {data.length > 0 &&
+                    data.map((item, index: number) => (
                         <Panel header={item.title} key={index} className={styles['links-title']} forceRender={true}>
                             {item.links.map((item1, index1: number) => {
                                 return (
@@ -105,7 +96,7 @@ const FooterMobile: React.FC<PropsWithChildren<{}>> = () => {
                 <img className='lazyload' data-src={'/assets/images/newsweek.png'} width={70} height={35} alt='Newsweek' />
             </div>
             <div className={styles.copyright}>
-                2006-{getYear(new Date())}{' '}
+                © 2006-{getYear(new Date())}{' '}
                 <a href='/'>EyeBuyDirect.com</a>
             </div>
         </div>

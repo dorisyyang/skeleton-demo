@@ -1,12 +1,12 @@
-import React, { useState, useEffect, PropsWithChildren} from 'react'
+import React, { useState, PropsWithChildren} from 'react'
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import styles from '@/components/layout/header/header-mobile.module.scss'
 import { Search, Favorite, Cart, Menu as IconMenu, EbdLogo, Chat, Telephone, Mail, Local } from '../../icons'
 import { Drawer, Button, Menu} from '@eyebuydirect/ebd.front.lib'
-import { get } from 'src/api/createHttpRequest'
-import { IHeaderData, INav} from 'src/components/layout/interface'
 import classNames from 'classnames';
+import useHeaderData from 'src/hooks/useHeaderData'
+import { INav } from 'src/components/layout/interface'
 
 const  {Item, SubMenu} = Menu;
 
@@ -34,8 +34,6 @@ const NavImageMenu: React.FC<INav> = ({ title, images }) => (
 
 const NormalMenu: React.FC<INav> = ({ title, columns, images }) => {
     const menuTitle = title.toLowerCase()
-    let dynamicCount = 0
-
     return (
         <SubMenu
             eventKey={title}
@@ -63,7 +61,6 @@ const NormalMenu: React.FC<INav> = ({ title, columns, images }) => {
                             title={title}
                         >
                             {links.map((item) => {
-                                dynamicCount++
                                 return (
                                     <Item key={`${menuTitle}-${item.title}`}>
                                         <a
@@ -104,7 +101,7 @@ const HeaderMobile: React.FC<PropsWithChildren<{}>> = (props) => {
     const [menuVisible, setMenuVisible] = useState<boolean>(false)
     const [cartVisible, setCartVisible] = useState<boolean>(false)
     const [wishlistVisible, setWishlistVisible] = useState<boolean>(false)
-    const [headerData, setHeaderData] = useState<IHeaderData | null>(null)
+    const headerData =  useHeaderData()
     const [openKeys, setOpenKeys] = useState<string[]>([])
     const rootSubmenuKeys = headerData?.nav ? [...headerData.nav.map((e) => e.title), 'Help'] : []
     const onOpenChange = (keys: string[]) => {
@@ -115,14 +112,6 @@ const HeaderMobile: React.FC<PropsWithChildren<{}>> = (props) => {
             setOpenKeys(latestOpenKey != null ? [latestOpenKey] : [])
         }
     }
-    useEffect(() => {
-        get("/api/header")
-          .then((data) => {
-              if (data.code === 200) {
-                setHeaderData(data.data)
-              }
-          });
-    }, [])
     return (
         <div id='header' className={styles.header}>
             <div className={styles.container}>

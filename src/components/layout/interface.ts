@@ -58,6 +58,11 @@ export interface IHeaderData {
     help: IColumnLink
     wishlist: WishlistProps[]
 }
+export interface HeaderProps {
+    data: IHeaderData
+    notShowPopup?: boolean
+}
+
 /*eof header*/
 
 /*bof layout*/

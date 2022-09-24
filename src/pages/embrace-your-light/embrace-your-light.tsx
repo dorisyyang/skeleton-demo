@@ -61,14 +61,14 @@ const EmbraceYourLight: React.FC = () => {
             {/* top banner */}
             <div className={styles["lele-top-banner"]}>
                 <picture className={styles["banner-box"]}>
-                    <source media="(min-width: 768px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner.jpg"/>
-                    <source media="(min-width: 300px)" data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner-m.jpg"/>
-                    <img className="lazyload" data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner.jpg" alt="LELE PONS X EYEBUYDIRECT" width="1920"/>
+                    <source media="(min-width: 768px)" srcSet="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner.jpg"/>
+                    <source media="(min-width: 300px)" srcSet="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner-m.jpg"/>
+                    <img src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/top-banner.jpg" alt="LELE PONS X EYEBUYDIRECT" width="1920"/>
                 </picture>
                 <div className={styles["top-txt"]}>
                     <h1 className={styles["txt-box"]}>
                         <span className={styles["img-box"]}>
-                            <img className="lazyload" src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/banner-title-n.svg" alt="Embrace your light" width="859" height="220"/>
+                            <img src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/banner-title-n.svg" alt="Embrace your light" width="859" height="220"/>
                         </span>
                     </h1>
                     <p>15 new styles. Endless ways to shine.</p>

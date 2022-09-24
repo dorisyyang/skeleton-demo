@@ -1,0 +1,418 @@
+@import './main-nav';
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    border-bottom: 2px solid #f7f7f7;
+    transform: translateY(50px);
+    transition: all 0.3s;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    max-width: 1360px;
+    height: 100%;
+    margin: 0 auto;
+    padding-right: 9px;
+    padding-left: 20px;
+    @include bp(desktop) {
+        padding-left: 12px;
+    }
+    @include bp(desktop-xl) {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    > a,
+    > div {
+        flex-shrink: 0;
+    }
+}
+
+.logo-content {
+    display: inline-block;
+    width: 185px;
+    height: auto;
+    overflow: hidden;
+    font-size: 0;
+
+    img {
+        width: 182px;
+        height: 17px;
+    }
+}
+
+.top-search-content {
+    width: 224px;
+    margin-left: 18px;
+    vertical-align: middle;
+
+    :global {
+        .ebd-input-affix-wrapper {
+            border-radius: 20px;
+
+            input {
+                font-size: 12px;
+            }
+
+            input::placeholder {
+                color: #888;
+            }
+
+            img {
+                width: 10px;
+                height: 10px;
+            }
+        }
+    }
+}
+
+/* bof shortcut */
+.shortcut-container {
+    margin-left: auto;
+
+    .shortcut-local {
+        display: flex;
+        align-items: center;
+
+        .local-item {
+            padding: 0 4px;
+            font-size: 16px;
+        }
+
+        .primary,
+        .primary:link,
+        .primary:visited {
+            color: #d39d4e;
+            text-decoration: underline;
+        }
+    }
+
+    :global {
+        .ebd-nav {
+            .ebd-nav-item {
+                position: relative;
+
+                a {
+                    color: $default-black;
+                }
+
+                &:hover .ebd-nav-item-title::after {
+                    width: 100%;
+                }
+
+                &:hover a {
+                    text-decoration: none;
+                }
+            }
+
+            .ebd-nav-item-title {
+                margin: 0;
+                padding: 14px 13px;
+            }
+
+            .ebd-nav-item-content {
+                width: 360px;
+                line-height: normal;
+                border: 2px solid #f7f7f7;
+                border-radius: 2px;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+
+    .sub-help {
+        left: -60%;
+        @media (max-width: 1430px) {
+            left: -110%;
+        }
+    }
+}
+
+.shortcut-icon-link {
+    svg {
+        vertical-align: middle;
+    }
+
+    .favorite-nums {
+        display: inline-block;
+        width: 19px;
+        height: 19px;
+        margin-top: -2px;
+        margin-left: 4px;
+        color: #fff;
+        font-size: 10px;
+        line-height: 19px;
+        text-align: center;
+        background-color: #707070;
+        border-radius: 50%;
+    }
+
+    .cart-nums {
+        display: inline-block;
+        width: 19px;
+        height: 19px;
+        margin-top: -2px;
+        margin-left: 4px;
+        color: #fff;
+        font-size: 10px;
+        line-height: 19px;
+        text-align: center;
+        background-color: #357b92;
+        border-radius: 50%;
+    }
+}
+
+.shortcut-sub-content {
+    padding: 14px 28px 20px;
+}
+
+.sub-help {
+    padding: 14px 0 0;
+
+    .help-title,
+    .shortcut-titile {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .help-title {
+        margin: 14px auto 20px;
+    }
+
+    .shortcut-titile {
+        margin: 0 auto 18px;
+    }
+
+    .help-link {
+        display: block;
+        padding: 7px 40px;
+        color: $default-black;
+        font-size: 16px;
+        text-align: left;
+
+        &:hover {
+            color: $primary-color !important;
+            text-decoration: underline;
+        }
+    }
+
+    .btn-faq {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        height: 40px;
+        margin: 11px auto 20px;
+        text-decoration: none;
+
+        button {
+            width: 100%;
+            height: 40px;
+        }
+    }
+
+    span {
+        font-size: 16px;
+    }
+
+    .help-details {
+        padding: 22px 40px 30px;
+        color: #444;
+        background: #f6f6f6;
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .faq-tel-time {
+        margin: 10px auto;
+        line-height: 1.6;
+
+        a {
+            vertical-align: middle;
+
+            &:hover {
+                color: $primary-color !important;
+                text-decoration: underline;
+            }
+        }
+
+        .tel-img {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .tel-txt {
+            vertical-align: middle;
+
+            &:hover {
+                color: $primary-color !important;
+            }
+        }
+    }
+
+    .btn-find {
+        display: inline-block;
+        margin-top: 10px;
+
+        .find-txt {
+            vertical-align: middle;
+
+            &:hover {
+                color: $primary-color;
+                text-decoration: underline;
+            }
+        }
+
+        .find-img {
+            margin-right: 11px;
+            vertical-align: middle;
+        }
+    }
+
+    .faq-others {
+        margin-bottom: 6px;
+
+        .chat-us {
+            color: $primary-color;
+            cursor: pointer;
+
+            &:hover {
+                color: $primary-hover-color;
+            }
+        }
+
+        i {
+            display: inline-block;
+            margin-bottom: 2px;
+            vertical-align: middle;
+        }
+    }
+
+    .faq-send-msg {
+        display: block;
+
+        .send-txt {
+            &:hover {
+                color: $primary-color;
+                text-decoration: underline;
+            }
+        }
+
+        .send-img {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+    }
+
+    .nav-live-chat {
+        position: relative;
+
+        img {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .chat-img {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .chat-txt {
+            color: $default-black;
+            vertical-align: middle;
+
+            &:hover {
+                color: $primary-color;
+                text-decoration: underline;
+            }
+        }
+
+        :global {
+            .head-live-chat-new {
+                position: absolute;
+                left: 23px;
+                opacity: 0;
+
+                & ~ .chat-tip {
+                    span {
+                        color: #a0a0a0;
+                        vertical-align: middle;
+                    }
+                }
+            }
+
+            .head-live-chat {
+                position: absolute;
+                left: 23px;
+                opacity: 0;
+
+                &:hover {
+                    & ~ .chat-tip {
+                        span {
+                            color: $primary-color;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                & ~ .chat-tip {
+                    color: $default-black;
+
+                    span {
+                        vertical-align: middle;
+                    }
+
+                    span + span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    :global(.LPMcontainer) {
+        position: absolute !important;
+        width: 100% !important;
+        height: 100% !important;
+        opacity: 0;
+    }
+}
+
+.sub-wishlist {
+    @media (max-width: 1440px) {
+        transform: translateX(-80%);
+    }
+}
+
+/* eof shortcut */
+
+@keyframes blink {
+    50% {
+        fill: transparent;
+    }
+}
+
+.dot {
+    animation: 1s blink infinite;
+    fill: #a0a0a0;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 250ms;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 500ms;
+}
+
+.loader {
+    color: #a0a0a0;
+}
