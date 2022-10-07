@@ -5,8 +5,8 @@ import styles from '@/components/layout/header/header-mobile.module.scss'
 import { Search, Favorite, Cart, Menu as IconMenu, EbdLogo, Chat, Telephone, Mail, Local } from '../../icons'
 import { Drawer, Button, Menu} from '@eyebuydirect/ebd.front.lib'
 import classNames from 'classnames';
-import useHeaderData from 'src/hooks/useHeaderData'
-import { INav } from 'src/components/layout/interface'
+import useHeaderData from '@/hooks/useHeaderData'
+import { INav } from '@/components/layout/interface'
 
 const  {Item, SubMenu} = Menu;
 

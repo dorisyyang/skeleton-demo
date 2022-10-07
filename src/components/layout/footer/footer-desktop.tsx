@@ -1,9 +1,9 @@
 import React, { PropsWithChildren} from 'react'
 import styles from './footer-desktop.module.scss'
 import { getYear } from 'date-fns'
-import { Facebook, Instagram, Play, Tiktok, Twitter } from 'src/components/icons'
-import { INormalLink } from 'src/components/layout/interface'
-import useFooterData from 'src/hooks/useFooterData'
+import { Facebook, Instagram, Play, Tiktok, Twitter } from '@/components/icons'
+import { INormalLink } from '@/components/layout/interface'
+import useFooterData from '@/hooks/useFooterData'
 
 function unorderedList(links: INormalLink[]) {
   return links.map((item1, index1: number) => (

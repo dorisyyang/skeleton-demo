@@ -1,8 +1,8 @@
 import React from 'react';
-import EmbraceYourLight from 'src/pages/embrace-your-light/embrace-your-light';
+import EmbraceYourLight from '@/pages/embrace-your-light/embrace-your-light';
 import '@/styles/index.scss';
 import 'animate.css';
-import Layout from 'src/components/layout/layout'
+import Layout from '@/components/layout/layout'
 function App() {
   return (
     <Layout>

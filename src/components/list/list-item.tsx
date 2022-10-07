@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react'
 import styles from '@/components/list/list-item.module.scss'
 import classNames from 'classnames';
-import { New } from 'src/components/icons'
-import { layoutContext } from 'src/components/layout/layoutContext'
+import { New } from '@/components/icons'
+import { layoutContext } from '@/components/layout/layoutContext'
 import LazyLoad from 'react-lazyload';
 
 export interface IProductItem {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { get } from 'src/api/createHttpRequest'
-import { IHeaderData } from 'src/components/layout/interface'
+import { get } from '@/api/createHttpRequest'
+import { IHeaderData } from '@/components/layout/interface'
 const useHeaderData = () => {
     const [data, setData] = useState<IHeaderData>({} as IHeaderData);
     useEffect(() => {

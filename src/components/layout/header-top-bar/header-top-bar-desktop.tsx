@@ -1,5 +1,5 @@
 import styles from './header-top-bar-desktop.module.scss'
-import useHeaderAnimation from 'src/hooks/useHeaderAnimation'
+import useHeaderAnimation from '@/hooks/useHeaderAnimation'
 import classNames from 'classnames'
 
 declare global {

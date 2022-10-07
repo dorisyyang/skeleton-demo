@@ -7,16 +7,16 @@ import styles from './embrace-your-light.module.scss'
 
 import classNames from 'classnames';
 
-import Skeleton from '../../components/skeleton'
-import SkeletonList from 'src/components/list/skeleton-list'
+import Skeleton from '@/components/skeleton'
+import SkeletonList from '@/components/list/skeleton-list'
 
-import ListItem from 'src/components/list/list-item';
+import ListItem from '@/components/list/list-item';
 
-import { get } from 'src/api/createHttpRequest'
+import { get } from '@/api/createHttpRequest'
 
-import { layoutContext } from 'src/components/layout/layoutContext' 
+import { layoutContext } from '@/components/layout/layoutContext' 
 
-import useAnimateOnScroll from '../../hooks/useAnimateOnScroll'
+import useAnimateOnScroll from '@/hooks/useAnimateOnScroll'
 
 const EmbraceYourLight: React.FC = () => {
     const [loading, setLoading] = useState(true)

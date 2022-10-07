@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { get } from 'src/api/createHttpRequest'
-import { IFooterData } from 'src/components/layout/interface'
+import { get } from '@/api/createHttpRequest'
+import { IFooterData } from '@/components/layout/interface'
 const useFooterData = () => {
     const [data, setData] = useState<IFooterData[]>([]);
     useEffect(() => {

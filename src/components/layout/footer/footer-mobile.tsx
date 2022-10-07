@@ -3,7 +3,7 @@ import styles from '@/components/layout/footer/footer-mobile.module.scss'
 import { Collapse } from '@eyebuydirect/ebd.front.lib'
 import { Facebook, Instagram, Play, Tiktok, Twitter } from '../../icons'
 import { getYear } from 'date-fns'
-import useFooterData from 'src/hooks/useFooterData'
+import useFooterData from '@/hooks/useFooterData'
 
 const { Panel } = Collapse
 

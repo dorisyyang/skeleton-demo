@@ -1,5 +1,5 @@
 import styles from './header-top-bar-mobile.module.scss'
-import useHeaderAnimation from 'src/hooks/useHeaderAnimation'
+import useHeaderAnimation from '@/hooks/useHeaderAnimation'
 import classNames from 'classnames'
 import React from 'react'
 

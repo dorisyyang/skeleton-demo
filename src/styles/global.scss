@@ -5,6 +5,8 @@ body {
     font-family: $font-family-base;
     line-height: 1.4;
     letter-spacing: 0;
+	-webkit-tap-highlight-color: transparent;
+	font-family: 'Outfit', sans-serif;
 }
 
 img {

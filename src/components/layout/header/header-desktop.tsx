@@ -1,12 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { useState, PropsWithChildren } from 'react'
-import { INav, INormalLink } from 'src/components/layout/interface'
+import { INav, INormalLink } from '@/components/layout/interface'
 import classNames from 'classnames'
 import styles from './header-desktop.module.scss'
 // import SearchBox from '@/components/algolia/searchBox'
 import { Button, Navigation } from '@eyebuydirect/ebd.front.lib'
-import { EbdLogo, Help, Favorite, Cart, Chat, Telephone, Mail, Local } from 'src/components/icons'
-import useHeaderData from 'src/hooks/useHeaderData'
+import { EbdLogo, Help, Favorite, Cart, Chat, Telephone, Mail, Local } from '@/components/icons'
+import useHeaderData from '@/hooks/useHeaderData'
 
 const NavItemWithMutipleImage: React.FC<INav> = ({ title, columns, images }) => {
     return (

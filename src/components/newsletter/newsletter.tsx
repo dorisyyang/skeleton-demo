@@ -1,8 +1,8 @@
-import { Close, Mail, Right } from 'src/components/icons'
+import { Close, Mail, Right } from '@/components/icons'
 import { Input, Button, Tooltip } from '@eyebuydirect/ebd.front.lib'
 import React, { useCallback, useState } from 'react'
 import styles from './newsletter.module.scss'
-import { post } from 'src/api/createHttpRequest'
+import { post } from '@/api/createHttpRequest'
 import Qs from 'qs'
 
 const NewsLetter = () => {

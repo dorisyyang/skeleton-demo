@@ -1,5 +1,5 @@
 import React from "react";
-import Skeleton from '../../components/skeleton'
+import Skeleton from '@/components/skeleton'
 import styles from './skeleton-list-item.module.scss'
 const SkeletonListItem: React.FC = () => {
     return (

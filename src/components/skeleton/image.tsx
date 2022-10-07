@@ -1,5 +1,5 @@
 import React from "react"
-import { SkeletonImage as Image } from 'src/components/icons'
+import { SkeletonImage as Image } from '@/components/icons'
 import classNames from 'classnames';
 import { SkeletonStyleProps } from './index'
 import { styleOptionsToCssProperties } from './skeleton'
