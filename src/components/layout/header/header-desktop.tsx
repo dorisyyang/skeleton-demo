@@ -2,9 +2,8 @@ import React, { useState, PropsWithChildren } from 'react'
 import { INav, INormalLink } from '@/components/layout/interface'
 import classNames from 'classnames'
 import styles from './header-desktop.module.scss'
-// import SearchBox from '@/components/algolia/searchBox'
-import { Button, Navigation } from '@eyebuydirect/ebd.front.lib'
-import { EbdLogo, Help, Favorite, Cart, Chat, Telephone, Mail, Local } from '@/components/icons'
+import { Button, Navigation, Input } from '@eyebuydirect/ebd.front.lib'
+import { EbdLogo, Help, Favorite, Cart, Chat, Telephone, Mail, Local, Search} from '@/components/icons'
 import useHeaderData from '@/hooks/useHeaderData'
 
 const NavItemWithMutipleImage: React.FC<INav> = ({ title, columns, images }) => {
@@ -187,9 +186,10 @@ const HeaderDesktopDefault: React.FC<PropsWithChildren<{}>> = () => {
                     </Navigation>
                 </div>
                 {/* eof nav */}
-                {/* <div className={styles['top-search-content']}>
-                    <SearchBox placeholder={t('header.search.placeholder')} openOnFocus={true} debug={false} />
-                </div> */}
+                
+                <div className={styles['top-search-content']}>
+                    <Input placeholder="I'm looking for..." size="small" prefix={<Search width={14} height={14} />} />
+                </div>
                 <div className={styles['shortcut-container']}>
                     <Navigation>
                         <Navigation.Item

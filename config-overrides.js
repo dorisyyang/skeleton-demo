@@ -1,10 +1,9 @@
-const { override, addWebpackAlias, adjustStyleLoaders, addBabelPlugin, setWebpackPublicPath, fixBabelImports, addLessLoader} = require('customize-cra');
+const { override, addWebpackAlias, adjustStyleLoaders, addBabelPlugin, fixBabelImports} = require('customize-cra');
 const path = require('path');
 
 // addWebpackModuleRule
 
 module.exports = override(
-//     setWebpackPublicPath('/'),
     fixBabelImports('import', { //配置按需加载
         libraryName: '@eyebuydirect/ebd.front.lib',
         libraryDirectory: 'lib',
@@ -19,10 +18,10 @@ module.exports = override(
     adjustStyleLoaders(rule => {
        
         if (rule.test.toString().includes('scss')) {
-                console.log('rule11', rule);
+                // console.log('rule11', rule);
                 // rule.use[3] resolve-url-loader
                 // rule.use[4] sass loader
-                rule.use[4].options.additionalData = `$font-path:${process.env.NODE_ENV === 'production' ? 'https://cdn-refebd-qa.ebdoptical.com' : ''};`;
+                rule.use[4].options.additionalData = `$font-path: '${process.env.NODE_ENV === 'production' ? 'https://cdn-refebd-qa.ebdoptical.com' : '../../../public'}';`;
                 rule.use.push({
                         loader: require.resolve('sass-resources-loader'),
                         options: {
