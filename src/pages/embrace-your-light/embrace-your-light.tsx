@@ -167,7 +167,7 @@ const EmbraceYourLight: React.FC = () => {
                     </div>
 
                      {/* phone 和desktop显示不同 desktop: main 和 hover的刚好相反：flip*/}
-                     <SkeletonList loading={loading}>
+                     <SkeletonList loading={loading} itemProps={{ Image: {height: 300} }}>
                         <ListItem className='content-frame-item' data={products["10885"]} defaultColor="C2" showNewTag={true} isFlipImages={true}/>
                     </SkeletonList>
                 </div>
@@ -247,7 +247,7 @@ const EmbraceYourLight: React.FC = () => {
                     </div>
 
                      {/* phone 和desktop显示不同 desktop待修改*/}
-                     <SkeletonList loading={loading}>
+                     <SkeletonList loading={loading} itemProps={{ Image: {height: 300} }}>
                         <ListItem className='content-frame-item' data={products["10890"]} defaultColor="C2" showNewTag={true} isFlipImages={true}/>
                     </SkeletonList>
                 </div>
@@ -329,7 +329,7 @@ const EmbraceYourLight: React.FC = () => {
                     </div>
 
                     {/* phone 和desktop显示不同 */}
-                    <SkeletonList loading={loading}>
+                    <SkeletonList loading={loading} itemProps={{ Image: {height: 300} }}>
                         <ListItem className='content-frame-item' data={products["10799"]} defaultColor="C1" isFlipImages={true}/>
                     </SkeletonList>
                 </div>
