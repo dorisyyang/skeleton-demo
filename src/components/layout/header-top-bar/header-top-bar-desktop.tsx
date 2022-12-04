@@ -20,7 +20,7 @@ const HeaderTopBarDesktop: React.FC = () => {
                 data-event-cate='Navigation'
                 data-event-name='Accessibility'
                 data-event-label='Accessibility'
-                tabIndex={1}
+                tabIndex={-1}
             >
                 Enter Accessibility Mode
             </div>

@@ -166,7 +166,7 @@ const HeaderDesktopDefault: React.FC<PropsWithChildren<{}>> = () => {
     return (
         <div id='header' className={styles.header}>
             <div className={styles.container}>
-                  <a href='/' className={styles['logo-content']}>
+                  <a href='/' className={styles['logo-content']} aria-label="find more glasses in eyebuydirect">
                       <EbdLogo width={172} height={19} />
                   </a>
                 <div className={styles['nav-content']}>

@@ -47,9 +47,9 @@ const EmbraceYourLight: React.FC = () => {
                   console.log('data', data.data);
                   console.log('data-10890', data.data["10890"])
               }
-            //   setTimeout(() => {
-                // setLoading(false)
-            //   }, 100)
+              setTimeout(() => {
+                setLoading(false)
+              }, 100)
           });
     }, []);
 
@@ -146,19 +146,21 @@ const EmbraceYourLight: React.FC = () => {
 
             {/* two bof */}
             <div className={classNames(styles["lele-container-two"], "animate")}>
-                <div className={styles["content-img"]}>
-                    <picture className={styles["img-box"]}>
-                        <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3.jpg"/>
-                        <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3-m.jpg"/>
-                        <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3.jpg" alt="Shine on" />
-                    </picture>
-                    
-                    <div className={classNames(styles["lele-svg"], "js-lele-rotate")}>
-                        <div className={styles["svg-box"]}>
-                            <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" />
+                <Skeleton loading={loading} className={styles["skeleton-content-img"]}>
+                    <div className={styles["content-img"]}>
+                        <picture className={styles["img-box"]}>
+                            <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3.jpg"/>
+                            <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3-m.jpg"/>
+                            <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-3.jpg" alt="Shine on" />
+                        </picture>
+                        
+                        <div className={classNames(styles["lele-svg"], "js-lele-rotate")}>
+                            <div className={styles["svg-box"]}>
+                                <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" width="285" height="284"/>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Skeleton>
 
                 <div className={classNames(styles["content-frame"])}>
                     <div className={styles["content-text-two"]}>
@@ -167,8 +169,8 @@ const EmbraceYourLight: React.FC = () => {
                     </div>
 
                      {/* phone 和desktop显示不同 desktop: main 和 hover的刚好相反：flip*/}
-                     <SkeletonList loading={loading} itemProps={{ Image: {height: 300} }}>
-                        <ListItem className='content-frame-item' data={products["10885"]} defaultColor="C2" showNewTag={true} isFlipImages={true}/>
+                     <SkeletonList loading={loading}  itemProps={ DEVICE === 'desktop' ? { Image: {height: 300} } : undefined}>
+                        <ListItem className='content-frame-item' data={products["10885"]} defaultColor="C2" showNewTag={true} isFlipImages={DEVICE === 'desktop'? true : false}/>
                     </SkeletonList>
                 </div>
                
@@ -226,19 +228,21 @@ const EmbraceYourLight: React.FC = () => {
 
             {/* three bof */}
             <div className={classNames(styles["lele-container-two"], styles["revert"], "animate")}>
-                <div className={styles["content-img"]}>
-                    <picture className={styles["img-box"]}>
-                        <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4.jpg"/>
-                        <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4-m.jpg"/>
-                        <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4.jpg" alt="Good to glow" />
-                    </picture>
+                <Skeleton loading={loading} className={styles["skeleton-content-img"]}>
+                    <div className={styles["content-img"]}>
+                        <picture className={styles["img-box"]}>
+                            <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4.jpg"/>
+                            <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4-m.jpg"/>
+                            <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-4.jpg" alt="Good to glow" />
+                        </picture>
 
-                    <div className={classNames(styles["lele-svg"], "js-lele-rotate")}>
-                        <div className={styles["svg-box"]}>
-                            <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" />
+                        <div className={classNames(styles["lele-svg"], "js-lele-rotate")}>
+                            <div className={styles["svg-box"]}>
+                                <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" width="285" height="284"/>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Skeleton>
 
                 <div className={classNames(styles["content-frame"])}>
                     <div className={styles["content-text-two"]}>
@@ -246,9 +250,9 @@ const EmbraceYourLight: React.FC = () => {
                         <p className={styles["lele-frame-content-text"]}>Bold shapes, bright colors, cool details --  pop on a pair of these fun frames to see your true self glow.</p>
                     </div>
 
-                     {/* phone 和desktop显示不同 desktop待修改*/}
-                     <SkeletonList loading={loading} itemProps={{ Image: {height: 300} }}>
-                        <ListItem className='content-frame-item' data={products["10890"]} defaultColor="C2" showNewTag={true} isFlipImages={true}/>
+                     {/* phone 和desktop显示不同*/}
+                     <SkeletonList loading={loading} itemProps={ DEVICE === 'desktop' ? { Image: {height: 300} } : undefined}>
+                        <ListItem className='content-frame-item' data={products["10890"]} defaultColor="C2" showNewTag={true} isFlipImages={DEVICE === 'desktop'? true : false}/>
                     </SkeletonList>
                 </div>
                
@@ -308,19 +312,21 @@ const EmbraceYourLight: React.FC = () => {
 
             {/* six bof */}
             <div className={classNames(styles["lele-container-two"], "animate")}>
-                <div className={styles["content-img"]}>
-                    <picture className={styles["img-box"]}>
-                        <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6.jpg"/>
-                        <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6-m.jpg"/>
-                        <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6.jpg" alt="Bright minded" />
-                    </picture>
+                <Skeleton loading={loading} className={styles["skeleton-content-img"]}>
+                    <div className={styles["content-img"]}>
+                        <picture className={styles["img-box"]}>
+                            <source media='(min-width: 768px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6.jpg"/>
+                            <source media='(min-width: 300px)' data-srcset="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6-m.jpg"/>
+                            <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-6.jpg" alt="Bright minded" />
+                        </picture>
 
-                    <div className={classNames(styles["lele-svg"], "js-lele-rotate")}>
-                        <div className={styles["svg-box"]}>
-                            <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" width="285" height="285"/>
+                        <div className={classNames(styles["lele-svg"], "js-lele-rotate")}>
+                            <div className={styles["svg-box"]}>
+                                <img className='lazyload' data-src="https://img.ebdcdn.com/image/upload/static/images/collection/lelepons/lele-pons-logo.svg" alt="Lele Pons" width="285" height="284"/>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Skeleton>
 
                 <div className={classNames(styles["content-frame"])}>
                     <div className={styles["content-text-two"]}>
@@ -329,8 +335,8 @@ const EmbraceYourLight: React.FC = () => {
                     </div>
 
                     {/* phone 和desktop显示不同 */}
-                    <SkeletonList loading={loading} itemProps={{ Image: {height: 300} }}>
-                        <ListItem className='content-frame-item' data={products["10799"]} defaultColor="C1" isFlipImages={true}/>
+                    <SkeletonList loading={loading} itemProps={ DEVICE === 'desktop' ? { Image: {height: 300} } : undefined}>
+                        <ListItem className='content-frame-item' data={products["10799"]} defaultColor="C1" isFlipImages={DEVICE === 'desktop'? true : false}/>
                     </SkeletonList>
                 </div>
                

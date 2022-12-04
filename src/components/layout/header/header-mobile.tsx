@@ -123,7 +123,7 @@ const HeaderMobile: React.FC<PropsWithChildren<{}>> = (props) => {
                         <Search width={16} height={16} />
                     </span>
                 </div>
-                <a className={styles.logo} href="/">
+                <a className={styles.logo} href="/" aria-label="find more glasses in eyebuydirect">
                     <EbdLogo width={172} height={19} />
                 </a>
                 <ul className={styles['btn-right-shortcut']}>

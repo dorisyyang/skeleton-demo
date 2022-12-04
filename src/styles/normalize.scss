@@ -7,10 +7,9 @@
  */
 
  html {
-    font-family: $font-family-base; /* 1 */
-    -ms-text-size-adjust: 100%; /* 2 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-  }
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+}
   
   /**
    * Remove default margin.
@@ -18,6 +17,7 @@
   
   body {
     margin: 0;
+    font-family: $font-family-base;
   }
   
   /* HTML5 display definitions

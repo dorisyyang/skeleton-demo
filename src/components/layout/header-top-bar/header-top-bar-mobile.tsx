@@ -19,7 +19,7 @@ const HeaderTopBarMobile: React.FC = () => {
                 data-event-cate='Navigation'
                 data-event-name='Accessibility'
                 data-event-label='Accessibility'
-                tabIndex={1}
+                tabIndex={-1}
             >
                 <div className={styles['accessibility-mode']}>
                     <img src={'/assets/images/icon-usablenet.svg'} width={20} height={20} alt='usableNet' />
